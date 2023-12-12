@@ -1,0 +1,151 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+ 
+}
+
+
+model Account {
+  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String  @db.ObjectId
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.String
+  access_token       String?  @db.String
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.String
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+
+
+model User {
+  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String   @unique
+  emailVerified DateTime?
+  image         String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  hashedPassword String?
+  role Role @default(LEARNER)
+  accounts      Account[]
+  
+  reviews   Reviews[]
+   courses   Course[]
+ 
+}
+
+
+
+
+model Reviews{
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  courseId String @db.ObjectId
+  rating Int
+  comments String
+  createdDate  DateTime @default(now())
+  course  Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Course{
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId  String @db.ObjectId
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sub_category_id String @db.ObjectId
+  sub_category Sub_category @relation(fields: [sub_category_id],references: [id],onDelete:Cascade)
+
+  cover String?
+  video String?
+  price  Float
+  title String
+  level String
+  description CourseDescription[]
+  requiremnts CourseRequiremnt[]
+  reviews Reviews[]
+  status  Boolean @default(false)
+
+  
+  createdAt DateTime   @default(now())
+  
+
+  
+
+
+}
+
+model Category{
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  category String @unique
+  sub_category Sub_category[]
+  createdAt DateTime   @default(now())
+
+}
+
+model Sub_category{
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  sub_category String 
+
+  category_id String @db.ObjectId
+  category Category  @relation(fields: [category_id],references: [id],onDelete:Cascade)
+  courses Course[]
+  createdAt DateTime   @default(now())
+
+}
+
+type CourseDescription{
+   content String
+}
+type CourseRequiremnt{
+   requiremnt String
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+type Image{
+  color String
+  colorCode String
+  image String
+
+}
+
+type Address{
+  country String
+  city String
+  line1 String
+  line2 String?
+  postalCode String
+  state String
+}
+enum Role{
+  LEARNER
+  TEACHER
+  ADMIN
+}
+
