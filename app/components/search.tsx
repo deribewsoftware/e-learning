@@ -1,11 +1,15 @@
+"use client"
+
+import { useTheme } from '@/hooks/useTheme';
 import {GoSearch} from 'react-icons/go'
-import {GrFormClose} from 'react-icons/gr'
+
 
 const Search = () => {
-  return ( <div className=" border flex gap-1 rounded bg-white hover:shadow p-1 items-center">
-    <label className='text-slate-500'><GoSearch size={25}/></label>
-    <input className="outline-none" type="search" />
-    <button className="px-4 border-none "><GrFormClose size={20}/></button>
+  const {isDark}=useTheme();
+  return ( <div className={`border flex gap-1 rounded-full  hover:shadow p-2 items-center focus-within:border-2 focus-within:border-blue-500 ${isDark? "bg-gray-600 border-2":" border-2 bg-white"} transition duration-300`}>
+    <label className={`${isDark? "text-white":" text-slate-500"}`}><GoSearch size={25}/></label>
+    <input className="outline-none w-full bg-transparent peer" type="search" placeholder='Search Courses...' />
+  
   </div> );
 }
  

@@ -19,7 +19,18 @@ export default async function Home() {
       <Header title='Most Popular Courses' border/>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 justify-round">
       {courses?.map((course) =><Card key={course.id} course={course}/>)}
-      
+     
+      </div>
+
+
+      <Header title='New Coming Courses' border/>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 justify-round">
+      {courses?.map((course) =><Card key={course.id} course={course}/>)}
+      </div>
+
+      <Header title='New Coming Courses' border/>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 justify-round">
+      {courses?.map((course) =><Card key={course.id} course={course}/>)}
       </div>
       </div>
     </Container>
