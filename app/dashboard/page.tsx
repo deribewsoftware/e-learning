@@ -18,16 +18,19 @@ const DashBoard = async() => {
       <h1 className="text-lg font-bold">124 Students</h1>
     </div>
   </CardContainer>
+  
   <CardContainer>
     <div className="flex justify-center h-48 w-48">
       <h1 className="text-lg font-bold">124 Students</h1>
     </div>
   </CardContainer>
+
   <CardContainer>
     <div className="flex justify-center h-48 w-48">
       <h1 className="text-lg font-bold">124 Students</h1>
     </div>
   </CardContainer>
+
   <CardContainer>
     <div className="flex justify-center h-48 w-48">
       <h1 className="text-lg font-bold">124 Students</h1>

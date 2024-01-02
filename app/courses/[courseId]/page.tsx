@@ -12,7 +12,6 @@ import axios from "axios";
 
 import { Avatar} from "@mui/material";
 import RatingPage from "../rating";
-import { reviews } from "@/utils/reviews";
 import CourseContent from "../courseContent";
 import CourseChapter from "../courseChapter";
 import AddReviews from "../addReviews";
@@ -25,6 +24,10 @@ type Course={
   title:string;
   cover:string;
   video:string;
+  description:any;
+  requiremnts:any;
+  reviews:any;
+  
 
 }
 
@@ -45,6 +48,9 @@ const Course = ({params}:{params:IPrams}) => {
     fetchData();
     
   },[params.courseId])
+  if(!course){
+    return ( <div> no Course</div>)
+  }
   
   return ( <div className="flex justify-center gap-20 flex-wrap md:pt-10 font-sans">
     <div className=" min-h-screen flex flex-col p-2 md:p-8 w-full md:w-6/12 gap-8 pt-10 md:pt-32">
@@ -124,9 +130,9 @@ md:fixed
 <Reviews reviews={course.reviews}/>
 
 
-    <Header title="More Realted Courses" border/>
+    {/* <Header title="More Realted Courses" border/>
     <div className="grid grid-cols-1 md:grid-cols-2 px-2 md:px-10 justify-center gap-10">
-      <Card/>
+      <Card />
       <Card/>
       <Card/>
       <Card/>
@@ -138,7 +144,7 @@ md:fixed
       <Card/>
       <Card/>
       <Card/>
-    </div>
+    </div> */}
     </>
 }
 

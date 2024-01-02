@@ -24,7 +24,9 @@ const LayoutClient:React.FC<LayoutClientProps> = ({children,user}) => {
     {children}
     
     </main>
-    <div className="">footer</div>
+    <div className="">
+      footer
+    </div>
   </div>
 );
 }
