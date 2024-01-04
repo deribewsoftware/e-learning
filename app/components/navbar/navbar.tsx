@@ -21,7 +21,7 @@ const Navbar:React.FC<NavbarProps> = ({user}) => {
   const {isDark,onTheme}=useTheme();
 
  
-  return ( <div className={`flex justify-between w-full sticky top-0 z-50 items-center shadow-md  py-1 p-2 md:px-8 z-10  ${isDark? 'bg-[#151c2c] text-white':'text-slate-700 bg-zinc-100'}`}>
+  return ( <div className={`flex justify-between w-full sticky top-0 z-50 items-center shadow-md  py-1 p-2 md:px-8 z-10  ${isDark? 'bg-[#031525] text-white':'text-slate-700 bg-zinc-100'}`}>
     <div className="font-bold text-lg md:text-3xl">E~learning</div>
     <ToastContainer position="top-center"  />
     

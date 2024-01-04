@@ -15,7 +15,7 @@ const LayoutClient:React.FC<LayoutClientProps> = ({children,user}) => {
 
   const usePath=usePathname()
   return ( 
-  <div className={`flex flex-col min-h-screen  ${isDark? 'bg-[#041e49] text-white':'text-slate-700 bg-zinc-100'}`}>
+  <div className={`flex flex-col min-h-screen  ${isDark? 'bg-[#031525] text-white':'text-slate-700 bg-slate-100'}`}>
    
     {usePath!=='/dashboard'&&<Navbar user={user}/>}
     

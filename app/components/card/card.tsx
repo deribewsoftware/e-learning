@@ -12,7 +12,7 @@ interface CardProps{
 const Card:React.FC<CardProps> = ({course}) => {
   const {isDark}=useTheme();
   
-  return ( <div className={`border w-[310px] bg-white`}>
+  return ( <div className={`w-[310px]   border-none shadow-md rounded-md ${isDark? 'bg-[#041e49] shadow-slate-900  text-white':'text-slate-700 bg-white shadow-slate-300 '}`}>
 
 
  <Link href={`/courses/${course?.id}`}>
