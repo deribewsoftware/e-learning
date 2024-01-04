@@ -3,6 +3,7 @@ import { useTheme } from "@/hooks/useTheme";
 import Navbar from "./components/navbar/navbar";
 import { ToastContainer } from "react-toast";
 import { usePathname } from "next/navigation";
+import Footer from "./components/footer/Footer";
 
 
 
@@ -25,7 +26,7 @@ const LayoutClient:React.FC<LayoutClientProps> = ({children,user}) => {
     
     </main>
     <div className="">
-      footer
+     <Footer/>
     </div>
   </div>
 );
