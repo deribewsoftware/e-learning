@@ -52,8 +52,8 @@ const Course = ({params}:{params:IPrams}) => {
     return ( <div> no Course</div>)
   }
   
-  return ( <div className="flex justify-center gap-20 flex-wrap md:pt-10 font-sans">
-    <div className=" min-h-screen flex flex-col p-2 md:p-8 w-full md:w-6/12 gap-8 pt-10 md:pt-32">
+  return ( <div className="flex justify-center gap-20 flex-wrap md:pt-10 font-sans overflow-x-hidden">
+    <div className=" min-h-screen flex flex-col p-2 w-full md:w-6/12 gap-8 pt-10 md:pt-32">
 
 {
 course &&
@@ -71,11 +71,11 @@ course &&
 
 
 <div className="
-md:fixed
+md:hidden
  md:right-48
   md:top-20 
     p-2
-     md:p-6
+     
       w-full
        md:w-[400px]
         flex
@@ -107,6 +107,8 @@ md:fixed
 
    <CardContainer radius>
    <Header title="instructor" border/>
+
+
     <div className="flex gap-4 sm:flex-col md:flex-row mt-4">
       <Avatar src={course.user.image} alt={course.user.name}/>
       <div className="flex flex-col gap-2">
@@ -156,9 +158,25 @@ md:fixed
 
 
 
-    <div className=" w-full md:w-2/12">
+    <div className=" w-full md:w-3/12 ">
   
-  
+    <div className="
+    
+    hidden
+    md:block
+
+ md:right-48
+  md:top-20 
+    p-2
+     md:px-6
+      w-full
+       md:w-[400px]
+        flex
+         flex-col
+         gap-10">
+<CourseContent/>
+<CourseChapter/>
+</div>
   
     </div>
 

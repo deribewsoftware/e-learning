@@ -188,7 +188,7 @@ const Category = () => {
        onMouseOver={()=>onshowCat(link.title)}> 
      <Links
      label={link.title}
-     href=  {`/${link.title}`}
+     href=  {`category/${link.id}`}
      icon={BsArrowRight}
      hasCategory={hasCat}
 

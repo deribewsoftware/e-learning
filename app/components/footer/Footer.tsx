@@ -9,7 +9,7 @@ const Footer = () => {
 
   
   const {isDark}=useTheme();
-  return ( <footer className={` mt-40 pt-10 flex flex-col gap-10 ${isDark? 'bg-black':'bg-slate-200'}`}>
+  return ( <footer className={` mt-40 p-4 pt-10 flex flex-col gap-10 ${isDark? 'bg-black':'bg-slate-200'}`}>
     <div className="flex flex-wrap justify-around">
 
 
@@ -43,7 +43,7 @@ const Footer = () => {
      
     </div>
 
-    <hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700"></hr>
+    <hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700 "></hr>
     <div className="contact-us flex justify-center gap-10">
      
       {socialMedias.map((social,index)=>{
